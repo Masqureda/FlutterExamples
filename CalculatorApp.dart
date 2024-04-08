@@ -75,6 +75,12 @@ class _AnaEkranState extends State<AnaEkran> {
     });
   }
 
+  sayiSifirla() {
+    setState(() {
+      sonuc = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -89,26 +95,36 @@ class _AnaEkranState extends State<AnaEkran> {
             TextField(
               controller: t2,
             ),
-            const SizedBox(height: 50),
-            ElevatedButton(
-              onPressed: sayiTopla,
-              child: const Text("Topla"),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: sayiTopla,
+                  child: const Text("+"),
+                ),
+                ElevatedButton(
+                  onPressed: sayiCikar,
+                  child: const Text("-"),
+                ),
+                ElevatedButton(
+                  onPressed: sayiCarp,
+                  child: const Text("x"),
+                ),
+                ElevatedButton(
+                  onPressed: sayiBol,
+                  child: const Text("/"),
+                ),
+              ],
             ),
-            const SizedBox(height: 50),
-            ElevatedButton(
-              onPressed: sayiCikar,
-              child: const Text("Çıkar"),
-            ),
-            const SizedBox(height: 50),
-            ElevatedButton(
-              onPressed: sayiCarp,
-              child: const Text("Çarp"),
-            ),
-            const SizedBox(height: 50),
-            ElevatedButton(
-              onPressed: sayiBol,
-              child: const Text("Böl"),
-            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: sayiSifirla,
+                  child: const Text("C"),
+                ),
+              ],
+            )
           ],
         ),
       ),
